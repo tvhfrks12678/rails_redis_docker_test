@@ -4,8 +4,8 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     @articles = cache_articles
-    # ids = REDIS.zrevrangebyscore "articles/daily/#{Date.today.to_s}", "+inf", 0, limit: [0, 5]
-    # @ranking_articles = ids.map{ |id| Article.find(id) } 
+    ids = REDIS.zrevrangebyscore "articles/daily/#{Date.today.to_s}", "+inf", 0, limit: [0, 5]
+    @ranking_articles = ids.map{ |id| Article.find(id) } 
   end
 
 

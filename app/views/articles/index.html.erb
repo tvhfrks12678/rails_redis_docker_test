@@ -36,6 +36,8 @@
 
   <tbody>
     <% unless @ranking_articles.nil? %>
+      <br>
+      以下が記事のアクセルランキング
       <% @ranking_articles.each do |article| %>
         <tr>
           <td><%= article.title %></td>
